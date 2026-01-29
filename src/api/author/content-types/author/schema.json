@@ -13,7 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
       "type": "string"
+    },
+    "bio": {
+      "type": "text",
+      "required": true
     },
     "avatar": {
       "type": "media",
@@ -21,7 +29,32 @@
       "required": false,
       "allowedTypes": ["images", "files", "videos"]
     },
-    "email": {
+    "isTeam": {
+      "type": "boolean",
+      "default": false
+    },
+    "team": {
+      "type": "enumeration",
+      "enum": ["founders", "team"]
+    },
+    "position": {
+      "type": "string"
+    },
+    "social": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.social"
+    },
+    "tick": {
+      "type": "text"
+    },
+    "surprising": {
+      "type": "text"
+    },
+    "weekends": {
+      "type": "text"
+    },
+    "bgColor": {
       "type": "string"
     },
     "articles": {

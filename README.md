@@ -32,6 +32,31 @@ npm run build
 yarn build
 ```
 
+## 📤 Migrate Authors to Strapi Cloud
+
+Migrate authors from datum.net content collection (`src/content/authors/`) to Strapi:
+
+1. Create an API token in Strapi Admin: **Settings → API Tokens** with `create` permission for **Author** and **Upload**
+2. Set env vars and run:
+
+```bash
+STRAPI_URL=https://your-project.strapiapp.com STRAPI_API_TOKEN=xxx npm run migrate:authors
+```
+
+Or use `.env`:
+
+```bash
+STRAPI_URL=https://your-project.strapiapp.com
+STRAPI_API_TOKEN=your-api-token
+```
+
+```bash
+npm run migrate:authors
+```
+
+- `AUTHORS_SOURCE`: Override source path (default: `../../datum.net/src/content/authors`)
+- Run from `strapi-blog` directory with datum.net as sibling folder
+
 ## ⚙️ Deployment
 
 Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.

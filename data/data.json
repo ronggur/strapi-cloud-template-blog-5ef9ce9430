@@ -29,36 +29,254 @@
   },
   "categories": [
     {
-      "name": "news",
-      "slug": "news"
+      "name": "Business Strategy",
+      "slug": "business-strategy",
+      "description": "Articles about business models, market analysis, and industry trends"
     },
     {
-      "name": "tech",
-      "slug": "tech"
+      "name": "Cloud Infrastructure",
+      "slug": "cloud-infrastructure",
+      "description": "Articles about cloud computing, infrastructure design, and platform services"
     },
     {
-      "name": "food",
-      "slug": "food"
+      "name": "Network Architecture",
+      "slug": "network-architecture",
+      "description": "Articles about network design, scalability, and infrastructure"
     },
     {
-      "name": "nature",
-      "slug": "nature"
+      "name": "Network Security",
+      "slug": "network-security",
+      "description": "Articles about network security, zero trust, and cybersecurity best practices"
     },
     {
-      "name": "story",
-      "slug": "story"
+      "name": "Open Source",
+      "slug": "open-source",
+      "description": "Articles about open source software, licensing, and community building"
+    },
+    {
+      "name": "Under the Hood",
+      "slug": "under-the-hood",
+      "description": "Go behind the scenes of how we build. This is where we share the technical and creative decisions that drive our product forward."
     }
   ],
   "authors": [
     {
-      "name": "David Doe",
-      "email": "daviddoe@strapi.io",
-      "avatar": "daviddoe@strapi.io.jpg"
+      "name": "Brett Mertens",
+      "bio": "I've spent the majority of my career working on CDNs and DNS platforms. As a result, I'm particularly passionate about making systems that don't make the news!",
+      "isTeam": true,
+      "title": "Product Lead",
+      "tick": "Decreasing time to dopamine for developers.",
+      "surprising": "I'm an artist who owns a bar / coffee shop.",
+      "weekends": "Walking the dog and hanging at the coffee shop.",
+      "avatar": "brett-mertens.png"
     },
     {
-      "name": "Sarah Baker",
-      "email": "sarahbaker@strapi.io",
-      "avatar": "sarahbaker@strapi.io.jpg"
+      "name": "Brian Toresdahl",
+      "bio": "I earned my stripes at AWS and Outreach making internet-scale systems useful for developers and businesses before building a DNS automation startup (Cloud Valid) from zero to acquisition.",
+      "isTeam": true,
+      "title": "Product Manager",
+      "tick": "Transforming complex internet infrastructure into simple tools for regular people.",
+      "surprising": "I grew up in Colorado and lived in a log cabin, where I chopped wood in winter to stay warm.",
+      "weekends": "Spending time with family, streaming obscure sci-fi, and paddle boarding Florida’s freshwater springs.",
+      "avatar": "brian-toresdahl.png"
+    },
+    {
+      "name": "Chris Berridge",
+      "bio": "Design leader with 20+ years shaping how people engage with digital products. From award-winning work to introducing elegant designs, nothing beats turning ideas into something people can't live without.",
+      "isTeam": true,
+      "title": "Founding Designer",
+      "tick": "Finding that magic moment between form, function and fun.",
+      "surprising": "During my amateur football (soccer) career, I set the Bristol league record for yellow cards, a record I still hold. Some call it a lack of discipline, I call it consistency.",
+      "weekends": "Tinkering with my ancient campervan or hacking my way around Somerset's golf courses.",
+      "avatar": "chris-berridge.png"
+    },
+    {
+      "name": "Dodik Gaghan",
+      "bio": "From web development to shipping features that scale, I've run the user interface gamut, and am obsessed with making things just work–and look good while I'm at it!",
+      "isTeam": true,
+      "title": "Engineer",
+      "tick": "Supercharging app performance, because we all need speed!",
+      "surprising": "My favorite debugging strategy? Talking to my rubber duck until it gives up first.",
+      "weekends": "Usually on the badminton court catching up with friends or relaxing with some team-based online games to recharge.",
+      "avatar": "dodik-gaghan.png"
+    },
+    {
+      "name": "Drew Raines",
+      "bio": "Network-obsessed since I got Internet access through a Unix shell account in the early 1990's, I've chased problems of all shapes and sizes as system administration shifted to cloud computing to SaaS-everything. Equally happy in large-scale email and DNS as I am information retrieval and distributed systems.",
+      "isTeam": true,
+      "title": "Head of Engineering",
+      "tick": "Building companies and inspiring high-performance engineering teams.",
+      "surprising": "My first startup was a church.",
+      "weekends": "Riding my bicycle or following my wife around the garden attempting to be useful.",
+      "avatar": "drew-raines.png"
+    },
+    {
+      "name": "Edo Aria",
+      "bio": "Backend developer who loves to work behind the scenes. I love helping our websites, docs, and related properties shine so that customers have a delightful experience.",
+      "isTeam": true,
+      "title": "Web Developer",
+      "tick": "Building the infrastructure that makes the front end shine.",
+      "surprising": "I've made several game titles for USSD(*#)... and this was before Android OS even existed ;)",
+      "weekends": "Enjoying the great outdoors, camping or fishing–sometimes both!",
+      "avatar": "edo-aria.png"
+    },
+    {
+      "name": "Evan Vetere",
+      "bio": "An old hacker from the 90s. I started my career in video production before bailing to systems administration and network engineering to get more sunlight. I've built infrastructure over decades with the same general approach: help developers ship faster and safer.",
+      "isTeam": true,
+      "title": "Infrastructure Lead",
+      "tick": "Automating away problems so that people forget they ever existed.",
+      "surprising": "I'm currently a certified drone operator in the United States, United Kingdom, and Canada but am working on a commercial pilot's license (mostly so I can stop saying no when my neighbors ask me to do their roof inspections).",
+      "weekends": "Playing host to friends in my little backyard in Brooklyn. Reviews are generally mixed, but vibes are high.",
+      "avatar": "evan-vetere.png"
+    },
+    {
+      "name": "Felix Widjaja",
+      "bio": "I live in between technical teams and business needs, translating company direction into developer requirements. I'm known as a serious Q/A nerd.",
+      "isTeam": true,
+      "title": "Web & Support",
+      "tick": "Give me a good time crunch and a tight deadline–I'll never miss.",
+      "surprising": "I have one espresso machine and three coffee grinders. I used to have a lever machine too, but the maintenance of having two was too much for me.",
+      "weekends": "My weekends begin with dirt or dust (gardening or house maintenance), followed by my main event: full-time dad mode.",
+      "avatar": "felix-widjaja.png"
+    },
+    {
+      "name": "Jacob Smith",
+      "bio": "Classical musician turned developer champion and brand builder. Finding market gaps and unique ways to stand apart from the crowd is what I live for.",
+      "isTeam": true,
+      "title": "Co-Founder, Head of Growth",
+      "team": "founders",
+      "tick": "Building relationships and bringing out the best in people.",
+      "surprising": "After Equinix, I joined my contractor's crew to build my own house.",
+      "weekends": "Walking the VT woods with my dogs or pitching in at the homeless shelter.",
+      "avatar": "jacob-smith.png"
+    },
+    {
+      "name": "Jose Szychowski",
+      "bio": "Building bridges between application development and cloud-native infrastructure is what I do best. I'm now focused on developing Kubernetes operators to build reliable and scalable systems.",
+      "isTeam": true,
+      "title": "Backend Engineer",
+      "tick": "Working through technical problems to deliver something to users.",
+      "surprising": "I love fast motorcycles.",
+      "weekends": "Taking the boat out for a day on the water with friends.",
+      "avatar": "jose-szychowski.png"
+    },
+    {
+      "name": "Kaley Gelineau",
+      "bio": "Creative ad agency gal turned tech marketer, community builder and customer champion. I love blending creative storytelling with technical credibility.",
+      "isTeam": true,
+      "title": "GTM Lead",
+      "tick": "Bold ideas, color coded anything, and having my hand in lots of honeypots.",
+      "surprising": "I love coffee so much that I became a certified barista when I lived in Australia. Flat whites anyone?",
+      "weekends": "Out hiking with my four legged fluff monster, Olive, or self-learning to remodel some area of my house.",
+      "avatar": "kaley-gelineau.png"
+    },
+    {
+      "name": "Manish Singh",
+      "bio": "Builder of Secure networking, cloud services and infrastructure products for the last 25+ years at Zscaler, Netscaler, Redback networks. My current mission: building interconnects with native zero-trust everyday! ",
+      "isTeam": true,
+      "title": "Ecosystem Lead",
+      "tick": "Connecting applications, agents, services and clouds automagically with scalable, secure and programmable solutions.",
+      "surprising": "Giving up my age here but I did work on Dial-up ISP equipment(Ascend) and ATM(Asynchronous transfer mode) networking.",
+      "weekends": "Hanging out with my kids, Playing tennis or Soccer - what the rest of the world calls Football!",
+      "avatar": "manish-singh.png"
+    },
+    {
+      "name": "Matt Jenkinson",
+      "bio": "A full-stack developer based in Bristol, UK I love building things that just feel right. I care about clean interfaces, predictable systems, and those little details that make a web app feel effortless.",
+      "isTeam": true,
+      "title": "Frontend Engineer",
+      "tick": "Reliable products, the kind that work so beautifully behind the scenes, the end-user doesn't have to think twice.",
+      "surprising": "I spent my late teens to early twenties cutting my teeth in the music industry and made it out as far as Indonesia with my band at the time!",
+      "weekends": "I'm usually at a gig or watching my favourite football team Aston Villa, up the Villans!",
+      "avatar": "matt-jenkinson.png"
+    },
+    {
+      "name": "Ollie Miller",
+      "bio": "Experienced design leader shaping elegant digital products for world-class organizations. From research-led strategy to delivery, I turn complex problems into experiences that feel simple, useful, and delightful.",
+      "isTeam": true,
+      "title": "Designer",
+      "tick": "That sweet spot where clarity, craft, and real human needs meet - and knowing when design should quietly step aside.",
+      "surprising": "I’ve played in bands on and off since the age of 10. The pinnacle of my musical endeavors was playing at Glastonbury Festival for several years on the trot.",
+      "weekends": "Ideally on an outdoor adventure with my young family, or trail running around the muddy hills of Somerset.",
+      "avatar": "ollie-miller.png"
+    },
+    {
+      "name": "Ronggur Habibun",
+      "bio": "Front-end developer who bridges design with functionality. I love building out someone's creative vision into a functional, scalable application that 'just works'.",
+      "isTeam": true,
+      "title": "Web Developer",
+      "tick": "Engineering pixel perfect layouts–it's all in the details.",
+      "surprising": "I used to have an online shop that sold action figures from Japan.",
+      "weekends": "Out wandering the city with my wife and son. I love uncovering new corners of my home!",
+      "avatar": "ronggur-habibun.png"
+    },
+    {
+      "name": "Scot Schuchert-Wells",
+      "bio": "I got my start coding in college and cut my teeth building CI/CD production systems. Since then, I've directed development and delivery of some of the largest edge compute platforms. I thrive in the messy middle between architecture and production deployments.",
+      "isTeam": true,
+      "title": "Software Lead",
+      "tick": "Taking a complicated feature from the whiteboard to production without breaking a sweat.",
+      "surprising": "I'm a big fan of leg day.",
+      "weekends": "Meal prepping and getting outdoors.",
+      "avatar": "scot-wells.png"
+    },
+    {
+      "name": "Silvia Olivares",
+      "bio": "With a background that includes executive coordination and event planning, I'm good at making other people feel good. I thrive on moving ideas forward.",
+      "isTeam": true,
+      "title": "Community Lead",
+      "tick": "Bringing people together. I'm all about the good vibes!",
+      "surprising": "I love everything paranormal and explore haunted locations all over the world.",
+      "weekends": "Out in NYC, running a marathon or catching a live show.",
+      "avatar": "silvia-olivares.png"
+    },
+    {
+      "name": "Steve Smyser",
+      "bio": "Seasoned Financial Lead and wearer of many hats. From Founder, CFO to Head of Operations, I've led portfolio management for startup acquisitions and cut my teeth in operational governance.",
+      "isTeam": true,
+      "title": "CFO",
+      "tick": "Building sustainable, successful businesses (yes, that means managing budgets too) and learning something new every day.",
+      "surprising": "I once performed in an opera at the Metropolitan Opera House in NYC where someone fell off the stage into the orchestra pit on opening night!",
+      "weekends": "Hanging out with family in NYC or practicing piano.",
+      "avatar": "steve-smyser.png"
+    },
+    {
+      "name": "Tom Daly",
+      "bio": "",
+      "isTeam": false,
+      "avatar": "tom-daly.png"
+    },
+    {
+      "name": "Yahya Fakhroji",
+      "bio": "I cut my chops as a full stack engineer transforming legacy systems into modern, beautiful interfaces for companies like Equinix, FUTR Asia and Packet. A passionate advocate for user centric innovation, I'm always pushing to solve real problems for real people.",
+      "isTeam": true,
+      "title": "Engineer",
+      "tick": "Implementing intuitive designs that just click–good UI should feel invisible.",
+      "surprising": "I often spend an entire day coding in Starbucks. Coffee and ambient noise keeps me in the zone.",
+      "weekends": "Gardening or going on food trips with my family.",
+      "avatar": "yahya-fakhroji.png"
+    },
+    {
+      "name": "Zac Smith",
+      "bio": "Veteran cloud builder with 25 years experience. After getting my start in the early days of Linux hosting (Voxel), I built a bare metal automation startup (Packet) and then led digital infrastructure services at Equinix. The humans of the internet are my people!",
+      "isTeam": true,
+      "title": "Co-Founder, CEO",
+      "team": "founders",
+      "tick": "Connecting the dots around the next big thing.",
+      "surprising": "I'm a Juilliard grad who plays double bass in two community orchestras.",
+      "weekends": "Driving my son's soccer team around or finding NYC's best negroni.",
+      "avatar": "zac-smith.png"
+    },
+    {
+      "name": "Zach Smith",
+      "bio": "With over a decade of scaled infrastructure experience, I'm at my best when diving super deep into a technical challenge that can make a clear difference for customers. Missed deliverables aren't in my vocabulary.",
+      "isTeam": true,
+      "title": "Backend Lead",
+      "tick": "Eliminating the friction that keeps engineers from doing their best work.",
+      "surprising": "I'm working at Datum because my name is Zach Smith. Good story!!",
+      "weekends": "Jamming on my keyboard while watching NFL Sunday.",
+      "avatar": "zach-smith.png"
     }
   ],
   "articles": [
@@ -93,7 +311,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -128,7 +349,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -163,7 +387,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -198,7 +425,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     },
@@ -233,7 +463,10 @@
         },
         {
           "__component": "shared.slider",
-          "files": ["coffee-art.jpg", "coffee-beans.jpg"]
+          "files": [
+            "coffee-art.jpg",
+            "coffee-beans.jpg"
+          ]
         }
       ]
     }

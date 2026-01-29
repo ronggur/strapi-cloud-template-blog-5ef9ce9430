@@ -218,7 +218,12 @@ async function importAbout() {
 
 async function importCategories() {
   for (const category of categories) {
-    await createEntry({ model: 'category', entry: category });
+    let entry = { ...category };
+    if (category.featuredImage) {
+      const featuredImage = await checkFileExistsBeforeUpload([category.featuredImage]);
+      entry = { ...entry, featuredImage };
+    }
+    await createEntry({ model: 'category', entry });
   }
 }
 
