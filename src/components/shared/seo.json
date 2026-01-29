@@ -21,6 +21,12 @@
       "multiple": false,
       "required": false,
       "allowedTypes": ["images"]
+    },
+    "ogTitle": {
+      "type": "string"
+    },
+    "ogDescription": {
+      "type": "text"
     }
   }
 }

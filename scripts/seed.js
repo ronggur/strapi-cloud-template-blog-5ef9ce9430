@@ -167,19 +167,26 @@ async function updateBlocks(blocks) {
 }
 
 async function importArticles() {
+  await uploadBodyImages();
+
   for (const article of articles) {
-    const cover = await checkFileExistsBeforeUpload([`${article.slug}.jpg`]);
-    const updatedBlocks = await updateBlocks(article.blocks);
+    let cover = null;
+    if (article.cover) {
+      cover = await checkFileExistsBeforeUpload([article.cover]);
+    }
+    const updatedBlocks = await updateBlocks(article.blocks || []);
+
+    const entry = { ...article, blocks: updatedBlocks, publishedAt: Date.now() };
+    if (cover) entry.cover = cover;
+
+    if (entry.seo?.shareImage) {
+      const shareImage = await checkFileExistsBeforeUpload([entry.seo.shareImage]);
+      entry.seo = { ...entry.seo, shareImage };
+    }
 
     await createEntry({
       model: 'article',
-      entry: {
-        ...article,
-        cover,
-        blocks: updatedBlocks,
-        // Make sure it's not a draft
-        publishedAt: Date.now(),
-      },
+      entry,
     });
   }
 }
@@ -216,9 +223,32 @@ async function importAbout() {
   });
 }
 
+async function uploadBodyImages() {
+  const imageRegex = /\/uploads\/([^\s)]+)/g;
+  const filenames = new Set();
+  for (const article of articles) {
+    for (const block of article.blocks || []) {
+      if (block.__component === 'shared.rich-text' && block.body) {
+        let match;
+        while ((match = imageRegex.exec(block.body)) !== null) {
+          filenames.add(match[1]);
+        }
+      }
+    }
+  }
+  for (const filename of filenames) {
+    await checkFileExistsBeforeUpload([filename]);
+  }
+}
+
 async function importCategories() {
   for (const category of categories) {
-    await createEntry({ model: 'category', entry: category });
+    let entry = { ...category };
+    if (category.featuredImage) {
+      const featuredImage = await checkFileExistsBeforeUpload([category.featuredImage]);
+      entry = { ...entry, featuredImage };
+    }
+    await createEntry({ model: 'category', entry });
   }
 }
 
