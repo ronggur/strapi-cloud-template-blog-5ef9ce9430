@@ -3,7 +3,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const mime = require('mime-types');
-const { categories, authors, articles, global, about } = require('../data/data.json');
+const { categories, authors, articles, global } = require('../data/data.json');
 
 async function seedExampleApp() {
   const shouldImportSeedData = await isFirstRun();
@@ -98,12 +98,11 @@ async function uploadFile(file, name) {
 }
 
 // Create an entry and attach files if there are any
-async function createEntry({ model, entry }) {
+async function createEntry({ model, entry, status }) {
   try {
-    // Actually create the entry in Strapi
-    await strapi.documents(`api::${model}.${model}`).create({
-      data: entry,
-    });
+    const params = { data: entry };
+    if (status) params.status = status;
+    await strapi.documents(`api::${model}.${model}`).create(params);
   } catch (error) {
     console.error({ model, entry, error });
   }
@@ -194,7 +193,10 @@ async function importArticles() {
     }
     const updatedBlocks = await updateBlocks(article.blocks || []);
 
-    const entry = { ...article, blocks: updatedBlocks, publishedAt: Date.now() };
+    const publishedAt = article.publishedAt
+      ? new Date(article.publishedAt).toISOString()
+      : new Date().toISOString();
+    const entry = { ...article, blocks: updatedBlocks, publishedAt, firstPublishedAt: publishedAt };
     if (cover) entry.cover = cover;
 
     if (entry.seo?.shareImage) {
@@ -205,6 +207,7 @@ async function importArticles() {
     await createEntry({
       model: 'article',
       entry,
+      status: 'published',
     });
   }
 }
@@ -223,20 +226,6 @@ async function importGlobal() {
         ...global.defaultSeo,
         shareImage,
       },
-    },
-  });
-}
-
-async function importAbout() {
-  const updatedBlocks = await updateBlocks(about.blocks);
-
-  await createEntry({
-    model: 'about',
-    entry: {
-      ...about,
-      blocks: updatedBlocks,
-      // Make sure it's not a draft
-      publishedAt: Date.now(),
     },
   });
 }
@@ -273,7 +262,6 @@ async function importSeedData() {
     category: ['find', 'findOne'],
     author: ['find', 'findOne'],
     global: ['find', 'findOne'],
-    about: ['find', 'findOne'],
   });
 
   // Create all entries
@@ -281,7 +269,6 @@ async function importSeedData() {
   await importAuthors();
   await importArticles();
   await importGlobal();
-  await importAbout();
 }
 
 async function main() {

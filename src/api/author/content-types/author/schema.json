@@ -37,9 +37,6 @@
       "type": "enumeration",
       "enum": ["founders", "team"]
     },
-    "position": {
-      "type": "string"
-    },
     "social": {
       "type": "component",
       "repeatable": false,
@@ -53,9 +50,6 @@
     },
     "weekends": {
       "type": "text"
-    },
-    "bgColor": {
-      "type": "string"
     },
     "articles": {
       "type": "relation",

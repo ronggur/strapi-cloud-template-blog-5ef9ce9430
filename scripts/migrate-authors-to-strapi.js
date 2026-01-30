@@ -69,7 +69,6 @@ function loadAuthors(sourceDir) {
       avatarPath,
       isTeam: data.isTeam === true || data.isTeam === 'true',
       team: data.team === 'founders' || data.team === 'team' ? data.team : null,
-      position: data.position,
       social: data.social
         ? typeof data.social === 'string'
           ? JSON.parse(data.social)
@@ -78,7 +77,6 @@ function loadAuthors(sourceDir) {
       tick: data.tick,
       surprising: data.surprising,
       weekends: data.weekends,
-      bgColor: data.bgColor,
     });
   }
   return authors;
@@ -123,11 +121,9 @@ async function createAuthor(author, avatarId) {
       title: author.title ?? undefined,
       isTeam: author.isTeam,
       team: author.team ?? undefined,
-      position: author.position ?? undefined,
       tick: author.tick ?? undefined,
       surprising: author.surprising ?? undefined,
       weekends: author.weekends ?? undefined,
-      bgColor: author.bgColor ?? undefined,
       avatar: avatarId ?? undefined,
       social:
         author.social &&

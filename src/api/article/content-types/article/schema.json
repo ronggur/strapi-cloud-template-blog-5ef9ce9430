@@ -15,18 +15,18 @@
     "title": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "description": {
+      "type": "text"
     },
     "cover": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "allowedTypes": ["images"]
     },
     "author": {
       "type": "relation",

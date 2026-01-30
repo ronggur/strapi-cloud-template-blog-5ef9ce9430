@@ -64,7 +64,6 @@ function loadAuthors(sourceDir) {
       avatarPath,
       isTeam: data.isTeam === true || data.isTeam === 'true',
       team: data.team === 'founders' || data.team === 'team' ? data.team : null,
-      position: data.position,
       social: data.social
         ? typeof data.social === 'string'
           ? JSON.parse(data.social)
@@ -73,7 +72,6 @@ function loadAuthors(sourceDir) {
       tick: data.tick,
       surprising: data.surprising,
       weekends: data.weekends,
-      bgColor: data.bgColor,
     });
   }
   return authors;
@@ -87,11 +85,9 @@ function toDataJsonFormat(author, avatarFilename) {
   };
   if (author.title) entry.title = author.title;
   if (author.team) entry.team = author.team;
-  if (author.position) entry.position = author.position;
   if (author.tick) entry.tick = author.tick;
   if (author.surprising) entry.surprising = author.surprising;
   if (author.weekends) entry.weekends = author.weekends;
-  if (author.bgColor) entry.bgColor = author.bgColor;
   if (avatarFilename) entry.avatar = avatarFilename;
   if (
     author.social &&
@@ -238,6 +234,15 @@ function loadBlogPosts(sourceDir, authorSlugToId, categorySlugToId) {
     const rawBody = stripMdxBody(bodyContent);
     const body = extractAndCopyBodyImages(rawBody, fileDir, slug, UPLOADS_BLOG_DIR);
 
+    const date = data.date ? new Date(data.date) : null;
+    const publishedAt = date && !Number.isNaN(date.getTime()) ? date.toISOString() : null;
+    const firstPublishedAt = data.firstPublishedAt
+      ? (() => {
+          const d = new Date(data.firstPublishedAt);
+          return !Number.isNaN(d.getTime()) ? d.toISOString() : publishedAt;
+        })()
+      : publishedAt;
+
     posts.push({
       slug,
       title: data.title,
@@ -251,9 +256,14 @@ function loadBlogPosts(sourceDir, authorSlugToId, categorySlugToId) {
       ogTitle,
       ogDescription,
       body,
+      publishedAt,
+      firstPublishedAt,
     });
   }
-  return posts.sort((a, b) => (a.slug < b.slug ? -1 : 1));
+  return posts.sort((a, b) => {
+    if (a.publishedAt && b.publishedAt) return b.publishedAt.localeCompare(a.publishedAt);
+    return a.slug < b.slug ? -1 : 1;
+  });
 }
 
 function toArticleDataJsonFormat(post, coverFilename, ogImageFilename) {
@@ -265,6 +275,10 @@ function toArticleDataJsonFormat(post, coverFilename, ogImageFilename) {
   };
   if (post.authorId) entry.author = { id: post.authorId };
   if (post.categoryId) entry.category = { id: post.categoryId };
+  // Always set publishedAt so articles are published, not draft
+  const publishedAt = post.publishedAt || new Date().toISOString();
+  entry.publishedAt = publishedAt;
+  entry.firstPublishedAt = post.firstPublishedAt || publishedAt;
   if (coverFilename) entry.cover = coverFilename;
   if (post.metaTitle || post.metaDescription) {
     entry.seo = {
