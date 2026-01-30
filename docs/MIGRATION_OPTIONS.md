@@ -1,7 +1,5 @@
 # Data Migration Options for Strapi Cloud
 
-Alternatives to `migrate-authors-to-strapi.js` for migrating data to Strapi Cloud:
-
 ---
 
 ## 1. data.json + Bootstrap Seed (Current Setup)
@@ -66,24 +64,10 @@ strapi import --file backup.tar.gz
 
 ---
 
-## 4. REST API Script (migrate-authors-to-strapi.js)
-
-**Flow:** Push authors via REST API
-
-```bash
-STRAPI_URL=https://your-project.strapiapp.com STRAPI_API_TOKEN=xxx node scripts/migrate-authors-to-strapi.js
-```
-
-**Pros:** Direct push, no local Strapi needed, can run from CI  
-**Cons:** Custom script, needs API token with create permissions
-
----
-
 ## Summary
 
-| Method              | When to use                          |
-|---------------------|--------------------------------------|
+| Method                  | When to use                          |
+|-------------------------|--------------------------------------|
 | **data.json + bootstrap** | Default: commit & deploy             |
 | **strapi transfer**      | One-time full migration from local   |
 | **export/import**        | Backup/restore, versioned exports    |
-| **REST API script**      | CI/CD, partial updates, no local run |

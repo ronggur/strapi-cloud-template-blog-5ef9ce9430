@@ -32,6 +32,14 @@ async function isFirstRun() {
   });
   const initHasRun = await pluginStore.get({ key: 'initHasRun' });
   await pluginStore.set({ key: 'initHasRun', value: true });
+
+  // Guard: if authors already exist (e.g. from transfer), skip seed to avoid duplicates.
+  // Transfer may not include plugin store, so initHasRun can be stale after transfer.
+  const existingAuthors = await strapi.documents('api::author.author').findMany({ limit: 1 });
+  if (existingAuthors.length > 0) {
+    return false;
+  }
+
   return !initHasRun;
 }
 
